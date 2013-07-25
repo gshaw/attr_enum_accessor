@@ -1,4 +1,4 @@
-# AttrEnumAccessor
+# Enumerated Attribute Accessor
 
 [![Build Status](https://travis-ci.org/gshaw/attr_enum_accessor.png?branch=master)](https://travis-ci.org/gshaw/attr_enum_accessor)
 [![Gem Version](https://badge.fury.io/rb/attr_enum_accessor.png)](http://badge.fury.io/rb/attr_enum_accessor)
