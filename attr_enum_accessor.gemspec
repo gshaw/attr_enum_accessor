@@ -1,28 +1,23 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'attr_enum_accessor/version'
+$:.push File.expand_path("../lib", __FILE__)
 
-Gem::Specification.new do |spec|
-  spec.name          = "attr_enum_accessor"
-  spec.version       = AttrEnumAccessor::VERSION
-  spec.authors       = ["Gerry Shaw"]
-  spec.email         = ["gshaw@reinvent.com"]
-  spec.summary       = %q{Enumerated fields stored using integers}
-  spec.homepage      = "https://github.com/gshaw/attr_enum_accessor"
-  spec.license       = "MIT"
+# Maintain your gem's version:
+require "attr_enum_accessor/version"
 
-  spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test)/})
-  spec.require_paths = ["lib"]
+# Describe your gem and declare its dependencies:
+Gem::Specification.new do |s|
+  s.name        = "attr_enum_accessor"
+  s.version     = AttrEnumAccessor::VERSION
+  s.authors     = ["Gerry Shaw"]
+  s.email       = ["gshaw@venturemedia.com"]
+  s.homepage    = "https://github.com/gshaw/attr_enum_accessor"
+  s.summary     = "Enumerated fields stored using integers"
+  s.description = "ActiveRecord plugin to efficienty store enumerated fields."
 
-  spec.required_ruby_version = ">= 1.9"
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
+  s.test_files = Dir["test/**/*"]
 
-  spec.add_dependency "activesupport", ">= 3.2"
+  s.add_dependency "rails", ">= 3.2"
 
-  spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "test-unit"
-  spec.add_development_dependency "guard-test"
+  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "guard-minitest"
 end

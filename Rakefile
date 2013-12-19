@@ -1,9 +1,7 @@
-#!/usr/bin/env rake
 begin
   require 'bundler/setup'
-  require 'bundler/gem_tasks'
 rescue LoadError
-  raise 'You must `gem install bundler` and `bundle install` to run rake tasks'
+  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
 
 require 'rdoc/task'
@@ -12,10 +10,14 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'AttrEnumAccessor'
   rdoc.options << '--line-numbers'
-  rdoc_main = 'README.md'
   rdoc.rdoc_files.include('README.md')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+
+
+
+Bundler::GemHelper.install_tasks
 
 require 'rake/testtask'
 
@@ -26,4 +28,5 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = false
 end
 
-task :default => :test
+
+task default: :test

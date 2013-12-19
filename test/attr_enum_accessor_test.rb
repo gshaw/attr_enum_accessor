@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'test_base_model'
 
 class User < TestBaseModel
   ROLE = {
